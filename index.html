@@ -2,11 +2,21 @@
 <html>
   <head>
     <title>kokosuki</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
     <h1>kokosuki</h1>
-    <video id="video"></video>
-    <input id="file" type="file" />
+    <div class="media">
+      <video class="video" id="video"></video>
+      <canvas class="canvas" id="canvas"></canvas>
+    </div>
+    <div class="controllers">
+      <div id="play">Play</div>
+      <div id="capture">Capture</div>
+    </div>
+    <div>
+      <input id="file" type="file" />
+    </div>
     <script src="dist/bundle.js" defer></script>
   </body>
 </html>
