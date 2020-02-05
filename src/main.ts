@@ -1,3 +1,5 @@
+const ONE_FRAME = 1 / 24;
+
 function $<E extends Element = HTMLElement>(selectors: string): E | null {
   return document.querySelector<E>(selectors);
 }
@@ -23,20 +25,11 @@ function getFileFromEvent(event: Event): File | null {
 }
 
 function setup() {
-  const video = $<HTMLVideoElement>('#video');
-  const canvas = $<HTMLCanvasElement>('#canvas');
+  const video = $<HTMLVideoElement>('#video')!;
+  const canvas = $<HTMLCanvasElement>('#canvas')!;
 
-  if (!video || !canvas) {
-    return;
-  }
-
-  $('#file')?.addEventListener('change', (event: Event) => {
-    const file = getFileFromEvent(event);
-
-    if (!file) {
-      return;
-    }
-
+  $('#file')!.addEventListener('change', (event: Event) => {
+    const file = getFileFromEvent(event)!;
     video.src = URL.createObjectURL(file);
 
     video.addEventListener('canplay', () => {
@@ -45,7 +38,7 @@ function setup() {
     });
   });
 
-  $('#play')?.addEventListener('click', () => {
+  $('#play')!.addEventListener('click', () => {
     if (video.paused) {
       video.play();
     } else {
@@ -53,8 +46,16 @@ function setup() {
     }
   });
 
-  $('#capture')?.addEventListener('click', () => {
+  $('#capture')!.addEventListener('click', () => {
     canvas.getContext('2d')?.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+  });
+
+  $('#previous')!.addEventListener('click', () => {
+    video.currentTime -= ONE_FRAME;
+  });
+
+  $('#next')!.addEventListener('click', () => {
+    video.currentTime += ONE_FRAME;
   });
 }
 

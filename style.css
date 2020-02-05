@@ -5,3 +5,7 @@
 .canvas {
   width: 50vw;
 }
+
+.controllers > * {
+  display: inline-block;
+}
