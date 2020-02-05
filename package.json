@@ -1,0 +1,19 @@
+{
+  "name": "kokosuki",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "webpack-dev-server"
+  },
+  "keywords": [],
+  "author": "dqn <suyarizzz@gmail.com> (https://github.com/dqn)",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.5",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.2"
+  }
+}
