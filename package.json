@@ -4,12 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "webpack-dev-server"
+    "start:dev": "webpack-dev-server",
+    "build": "webpack",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "dqn <suyarizzz@gmail.com> (https://github.com/dqn)",
   "license": "ISC",
   "devDependencies": {
+    "gh-pages": "^2.2.0",
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.5",
     "webpack": "^4.41.5",
