@@ -36,8 +36,16 @@ function setup() {
   const canvas = document.createElement('canvas');
 
   $('#file')!.addEventListener('change', (event: Event) => {
-    const file = getFileFromEvent(event)!;
+    const file = getFileFromEvent(event);
+
+    if (!file) {
+      video.src = '';
+      $('#title')!.innerHTML = '';
+      return;
+    }
+
     video.src = URL.createObjectURL(file);
+    $('#title')!.innerHTML = file.name;
 
     video.addEventListener('canplay', () => {
       canvas.width = video.videoWidth;
@@ -55,7 +63,9 @@ function setup() {
 
   $('#capture')!.addEventListener('click', () => {
     canvas.getContext('2d')!.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
-    download(canvas.toDataURL('image/png'), Date.now().toString());
+    const fileName = `${Date.now()}.jpg`;
+    const url = canvas.toDataURL('image/jpeg');
+    download(url, fileName);
   });
 
   $('#previous')!.addEventListener('click', () => {
