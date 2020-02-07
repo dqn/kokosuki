@@ -1,0 +1,27 @@
+body {
+  background-color: #222;
+}
+
+body * {
+  color: #fff;
+}
+
+button {
+  color: #000;
+}
+
+.w-80 {
+  width: 80%;
+}
+
+.w-20 {
+  width: 20%;
+}
+
+.seekbar {
+  width: 100%;
+}
+
+.controllers * {
+  display: inline-block;
+}

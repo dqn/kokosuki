@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>kokosuki</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <h1>kokosuki</h1>
+    <video class="w-80" id="video"></video>
+    <h3 id="title"></h3>
+    <div class="controllers">
+      <button id="play">Play</button>
+      <button id="previous">←</button>
+      <button id="next">→</button>
+      <button id="capture">Capture</button>
+    </div>
+    <div class="w-80">
+      <input class="seekbar" id="seekbar" type="range" value="0" />
+    </div>
+    <div>
+      <input id="file" type="file" />
+    </div>
+    <script src="dist/bundle.js" defer></script>
+  </body>
+</html>
