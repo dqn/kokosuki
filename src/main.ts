@@ -1,5 +1,12 @@
 const ONE_FRAME = 1 / 24;
 
+function download(url: string, fileName: string): void {
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = fileName;
+  a.click();
+}
+
 function $<E extends Element = HTMLElement>(selectors: string): E | null {
   return document.querySelector<E>(selectors);
 }
@@ -26,7 +33,7 @@ function getFileFromEvent(event: Event): File | null {
 
 function setup() {
   const video = $<HTMLVideoElement>('#video')!;
-  const canvas = $<HTMLCanvasElement>('#canvas')!;
+  const canvas = document.createElement('canvas');
 
   $('#file')!.addEventListener('change', (event: Event) => {
     const file = getFileFromEvent(event)!;
@@ -47,7 +54,8 @@ function setup() {
   });
 
   $('#capture')!.addEventListener('click', () => {
-    canvas.getContext('2d')?.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+    canvas.getContext('2d')!.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+    download(canvas.toDataURL('image/png'), Date.now().toString());
   });
 
   $('#previous')!.addEventListener('click', () => {
