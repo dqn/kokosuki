@@ -10,10 +10,18 @@ button {
   color: #000;
 }
 
-.video {
+.w-80 {
   width: 80%;
 }
 
-.controllers > * {
+.w-20 {
+  width: 20%;
+}
+
+.seekbar {
+  width: 100%;
+}
+
+.controllers * {
   display: inline-block;
 }

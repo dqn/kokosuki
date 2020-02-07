@@ -50,14 +50,23 @@ function setup() {
     video.addEventListener('canplay', () => {
       canvas.width = video.videoWidth;
       canvas.height = video.videoHeight;
+      $<HTMLInputElement>('#seekbar')!.max = video.duration.toString();
     });
   });
 
-  $('#play')!.addEventListener('click', () => {
+  $('#play')!.addEventListener('click', (event: Event) => {
+    if (!video.src) {
+      return;
+    }
+
+    const element = <HTMLElement>event.target;
+
     if (video.paused) {
       video.play();
+      element.innerHTML = 'Stop';
     } else {
       video.pause();
+      element.innerHTML = 'Play';
     }
   });
 
@@ -74,6 +83,21 @@ function setup() {
 
   $('#next')!.addEventListener('click', () => {
     video.currentTime += ONE_FRAME;
+  });
+
+  $('#seekbar')!.addEventListener('change', (event: Event) => {
+    const { target } = event;
+
+    if (!isHTMLInputElement(target)) {
+      return;
+    }
+
+    video.currentTime = Number(target.value);
+    setInterval(() => {
+      if (video.src) {
+        target.value = video.currentTime.toString();
+      }
+    }, 1000);
   });
 }
 

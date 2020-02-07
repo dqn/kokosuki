@@ -6,17 +6,16 @@
   </head>
   <body>
     <h1>kokosuki</h1>
-    <div class="media">
-      <video class="video" id="video"></video>
-    </div>
-    <div>
-      <h3 id="title"></h3>
-    </div>
+    <video class="w-80" id="video"></video>
+    <h3 id="title"></h3>
     <div class="controllers">
       <button id="play">Play</button>
       <button id="previous">←</button>
       <button id="next">→</button>
       <button id="capture">Capture</button>
+    </div>
+    <div class="w-80">
+      <input class="seekbar" id="seekbar" type="range" value="0" />
     </div>
     <div>
       <input id="file" type="file" />
