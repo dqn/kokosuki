@@ -1,9 +1,17 @@
-.video {
-  width: 50vw;
+body {
+  background-color: #222;
 }
 
-.canvas {
-  width: 50vw;
+body * {
+  color: #fff;
+}
+
+button {
+  color: #000;
+}
+
+.video {
+  width: 80%;
 }
 
 .controllers > * {
