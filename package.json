@@ -9,7 +9,7 @@
     "deploy": "gh-pages -d dist"
   },
   "keywords": [],
-  "author": "dqn <suyarizzz@gmail.com> (https://github.com/dqn)",
+  "author": "dqn <dqn443@gmail.com> (https://github.com/dqn)",
   "license": "ISC",
   "devDependencies": {
     "gh-pages": "3.1.0",
